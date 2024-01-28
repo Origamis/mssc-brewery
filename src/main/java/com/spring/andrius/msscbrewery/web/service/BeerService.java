@@ -2,7 +2,6 @@ package com.spring.andrius.msscbrewery.web.service;
 
 import com.spring.andrius.msscbrewery.web.model.BeerDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -12,7 +11,7 @@ import java.util.UUID;
 public class BeerService {
 
     public BeerDto getBeerById(UUID beerId) {
-        return  BeerDto.builder()
+        return BeerDto.builder()
                 .id(UUID.randomUUID())
                 .beerName("Corona")
                 .beerStyle("Pale Ale")

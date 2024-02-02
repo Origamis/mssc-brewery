@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Deprecated
 @RestController
-@RequestMapping("/api/v1/beer")
+@RequestMapping("/api/v1/beer/")
 @AllArgsConstructor
 public class BeerController {
 

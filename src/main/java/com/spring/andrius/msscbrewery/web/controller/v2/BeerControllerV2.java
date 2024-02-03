@@ -3,7 +3,6 @@ package com.spring.andrius.msscbrewery.web.controller.v2;
 import com.spring.andrius.msscbrewery.web.model.BeerDto;
 import com.spring.andrius.msscbrewery.web.model.v2.BeerDtoV2;
 import com.spring.andrius.msscbrewery.web.service.v2.BeerServiceV2;
-import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -11,8 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -47,16 +44,5 @@ public class BeerControllerV2 {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBeer(UUID beerId) {
         beerServiceV2.deleteBeerById(beerId);
-    }
-
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<List> validationHandler(ConstraintViolationException ex) {
-        List<String> errors = new ArrayList<>(ex.getConstraintViolations().size());
-
-        ex.getConstraintViolations().forEach(constraintViolation -> {
-            errors.add(constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage());
-        });
-
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }

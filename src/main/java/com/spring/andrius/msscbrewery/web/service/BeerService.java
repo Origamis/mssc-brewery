@@ -24,7 +24,7 @@ public class BeerService {
                 .build();
     }
 
-    public void updateBeer(UUID beerId) {
+    public void updateBeer(UUID beerId, BeerDto beerDto) {
         log.info("Beer is updated " + beerId);
     }
 
